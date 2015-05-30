@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 
 /*
- * The Client with its GUI Letzter Test für KEvin
+ * The Client with its GUI Letzter Test für KEvin222
  */
 public class ClientGUI extends JFrame implements ActionListener {
 
