@@ -138,7 +138,7 @@ public class dbconnect {
     		    	String distance= new Double(d).toString();
     		    	
     		    	userlistcreate.add(namecreate);
-    		    	userlistcreate.add(ipcreate);
+    		    	userlistcreate.add(ipcreate); // für Telegraph TB
     		    	userlistcreate.add(distance);
     		    }
         	}
@@ -149,7 +149,6 @@ public class dbconnect {
         
         return userlistcreate;
         
-        //Hier noch anstatt der Prüfung ob eingefügt die Berechnung machen und dann Liste ausgeben - DZ
     }
     
     public static List<String> update(String username, String ip, double latitude, double longitude, Connection c) throws SQLException, NullPointerException{
@@ -173,7 +172,7 @@ public class dbconnect {
         	latitudeupdate = rsupdate.getDouble("latitude");
         	longitudeupdate = rsupdate.getDouble("longitude");
         	
-        	if(userlistupdate.size() < 60){
+        	if(userlistupdate.size() < 60){ // Beschränkung auf 20 Nutzer TB
     		    int radius = 6371;
 
     		    double lat = Math.toRadians(latitudeupdate - latitude);
