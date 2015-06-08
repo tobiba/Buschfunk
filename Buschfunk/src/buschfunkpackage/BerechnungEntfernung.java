@@ -1,5 +1,7 @@
 package buschfunkpackage;
 
+//Test
+
 public class BerechnungEntfernung {
 		
 		static double lat1 = 49.4746841;
