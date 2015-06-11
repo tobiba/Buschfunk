@@ -52,10 +52,7 @@ public class Server {
 
 			// infinite loop to wait for connections
 			while(keepGoing) 
-			{
-				// format message saying we are waiting
-				display("Server waiting for Clients on port " + port + ".");
-				
+			{			
 				Socket socket = serverSocket.accept();  	// accept connection
 				// if I was asked to stop
 				if(!keepGoing)
