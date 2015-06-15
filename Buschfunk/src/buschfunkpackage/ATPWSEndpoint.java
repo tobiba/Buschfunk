@@ -46,10 +46,6 @@ public class ATPWSEndpoint {
 
     private static final Logger LOG = Logger.getLogger(ATPWSEndpoint.class.getName());
     private static Set<Session> peers = Collections.synchronizedSet(new HashSet<Session>());
-    
-    public static void main(String[] args){
-    	atpendpoint.publish("http://localhost:1500");
-    }
 
     
  // Das Frontend ruft die "onMessage" Methode auf und übergibt die Message sowie die Userdaten
@@ -95,7 +91,6 @@ public class ATPWSEndpoint {
     public void onOpen(Session peer) {
         LOG.info("Connection opened ...");
         peers.add(peer);
-        //Username schon gleich mitnehmen und prŸfen --> checkit funktion in DB
     }
 
     @OnClose

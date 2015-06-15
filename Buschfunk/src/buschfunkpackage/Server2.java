@@ -60,15 +60,6 @@ public class Server2 {
 	 *  server constructor that receive the port to listen to for connection as parameter
 	 *  in console
 	 */
-	public Server2(int port) {
-		this(port, null);
-	}
-	
-
-	
-	public Server2(int port2, Object object) {
-		// TODO Auto-generated constructor stub
-	}
 
 
 	public static void main(String[] args) throws SQLException, NullPointerException, IOException {
