@@ -47,7 +47,7 @@ public class Server2 {
 	// a unique ID for each connection
 	private static int uniqueId;
 	// an ArrayList to keep the list of the Client
-	private ArrayList<ClientThread> al;
+	//private ArrayList<ClientThread> al;
 	// to display time
 	private SimpleDateFormat sdf;
 	// the port number to listen for connection
@@ -71,58 +71,6 @@ public class Server2 {
 	}
 
 
-
-	public void start() throws IOException, SQLException {
-		keepGoing = true;
-		/* create socket server and wait for connection requests */
-		try 
-		{
-			// the socket used by the server
-			ServerSocket serverSocket = new ServerSocket(port);
-
-			// infinite loop to wait for connections
-			while(keepGoing) 
-			{	
-				Socket socket = serverSocket.accept();  	// accept connection
-				// if I was asked to stop
-				if(!keepGoing)
-					break;
-				
-				// !!!!! Hier müssen wir nun irgendwie sicherstellen, dass auf Funktion onMessage gewartet wird
-				
-				
-			//	ClientThread t = new ClientThread(socket, nameofharry, ipofharry, longitudeofharry, latitudeofharry, c);  //muss noch auf generische Bezeichnungen geändert werden (z.B. username statt nameofharry)
-				// getAl().add(t);									// save it in the ArrayList
-				// t.start();									// startet den Threat
-			}
-			// falls gestoppt, werden alle Threats geschlossen
-			try {											
-				serverSocket.close();
-				for(int i = 0; i < getAl().size(); ++i) {
-					ClientThread tc = getAl().get(i);
-					try {
-					tc.sInput.close();
-					tc.sOutput.close();
-					tc.socket.close();
-					}
-					catch(IOException ioE) {
-						// not much I can do
-					}
-				}
-			}
-			catch(Exception e) {
-				System.out.println("Exception closing the server and clients: " + e);
-				}}
-			
-			finally {
-				System.out.println("Ansonsten Fehler, aber warum?");
-			
-				
-			}
-		
-	}		
-	
-	
 	public static void main(String[] args) throws SQLException, NullPointerException, IOException {
 		
 		 Connection c = null;
@@ -151,20 +99,75 @@ public class Server2 {
 				
 		}
 				
-		harrysliste.add("Marie");
+		/**harrysliste.add("Marie");
 	    harrysliste.add("192.168.0.4");
 	    harrysliste.add("289");
 	    harrysliste2.add("Hubert");
 	    harrysliste2.add("192.168.0.3");
-	    harrysliste2.add("488"); 
+	    harrysliste2.add("488"); */
 	       
 		// create a server object and start it
 		Server2 server = new Server2(portNumber);
 		server.start();
 	}
+	
+
+	public void start() throws IOException, SQLException {
+		keepGoing = true;
+		/* create socket server and wait for connection requests */
+		try 
+		{
+			// the socket used by the server
+			ServerSocket serverSocket = new ServerSocket(port);
+
+			// infinite loop to wait for connections
+			while(keepGoing) 
+			{	
+				Socket socket = serverSocket.accept();  	// accept connection
+				// if I was asked to stop
+				if(!keepGoing)
+					break;
+				
+				// !!!!! Hier müssen wir nun irgendwie sicherstellen, dass auf Funktion onMessage gewartet wird
+				
+				
+			//	ClientThread t = new ClientThread(socket, nameofharry, ipofharry, longitudeofharry, latitudeofharry, c);  //muss noch auf generische Bezeichnungen geändert werden (z.B. username statt nameofharry)
+				// getAl().add(t);									// save it in the ArrayList
+				// t.start();									// startet den Threat
+			}
+			// falls gestoppt, werden alle Threats geschlossen
+			try {											
+				serverSocket.close();
+				}
+				/**for(int i = 0; i < getAl().size(); ++i) {
+					ClientThread tc = getAl().get(i);
+					try {
+					tc.sInput.close();
+					tc.sOutput.close();
+					tc.socket.close();
+					}*/
+					catch(IOException ioE) {
+						// not much I can do
+					}
+				}
+			
+			catch(Exception e) {
+				System.out.println("Exception closing the server and clients: " + e);
+				}
+			
+			finally {
+				System.out.println("Ansonsten Fehler, aber warum?");
+			
+				
+			}
+		
+	}		
+	
+	
+
 
 	/** One instance of this thread will run for each client */
-	class ClientThread extends Thread {
+	/**class ClientThread extends Thread {
 		// the socket where to listen/talk
 		Socket socket;
 		ObjectInputStream sInput;
@@ -248,7 +251,7 @@ public class Server2 {
 
 		public void setAl(ArrayList<ClientThread> al) {
 			this.al = al;
-		}
+		}*/
 		
 		
 }
